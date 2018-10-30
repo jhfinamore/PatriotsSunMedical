@@ -1,0 +1,20 @@
+#login_card {
+    display: block;
+    margin: auto;
+    width: fit-content;
+    padding: 10px;
+}
+
+input {
+    margin: 5px;
+}
+
+legend {
+    color: maroon;
+    font-family: Bookman Old Style;
+    font-size: 24px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 26.4px;
+}

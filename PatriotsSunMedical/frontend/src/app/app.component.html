@@ -1,7 +1,40 @@
+<header>
+    <img src="assets/images/logo.jpg" alt="PatriotsSunMedical Logo Image" id="logo_image">
+</header>
+
 <mat-toolbar>
-  <span>Angular 6 - MEAN Stack Sample Application</span>
+  <span>
+    Patriots Sun Medical
+  </span>
 </mat-toolbar>
-<div>
+<hr id="navigation_seperator">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <p class="navbar-brand">Site Navigation</p>
+    
+    <div id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/mission">Our Mission</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/services">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" id="staff_portal" href="/list">Staff Portal</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/staff_login">Staff Login</a>
+        </li>
+      </ul>
+    </div>
+
+
+  </nav>
+
+<div id="patient_list">
   <router-outlet></router-outlet>
 </div>
 

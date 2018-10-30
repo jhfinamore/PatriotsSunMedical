@@ -1,0 +1,59 @@
+body {
+    background-color: grey;
+    color: darkslategrey;
+}
+
+mat-toolbar {
+    background-color: darkslategray;
+    color: burlywood;
+    text-align: center;
+    height: fit-content;
+
+    padding: 8px;
+
+    font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia, serif; 
+    font-size: 34px; 
+    font-style: oblique; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 26.4px; 
+    letter-spacing: 2px;
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#navigation_seperator {
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid goldenrod;
+}
+
+.navbar-brand {
+    color: goldenrod;
+    font-size: 15pt;
+    padding: 0px;
+    margin-bottom: 3px;
+}
+
+.navbar-brand:hover {
+    color: goldenrod;
+}
+
+#logo_image {
+    height: 85px;
+    width: 85px;
+
+    display: block;
+    margin: auto;
+    padding: 10px;
+}
+
+#patient_list {
+    width: 95%;
+    display: block;
+    margin: auto;
+}

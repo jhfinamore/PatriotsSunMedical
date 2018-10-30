@@ -1,0 +1,32 @@
+<p>
+  Maybe later on staff would be required to log in before accessing the patient database.
+  May be scrapped if time doesn't allow, mostly a placeholder for now.
+</p>
+
+
+<div>
+  <br>
+  <mat-card id="login_card">
+    <form id="login_form">
+      <fieldset>
+        <legend>Staff Authorization</legend>
+          <table>
+            <tr>
+                <label for="uname"><b>Username </b></label>
+                <input type="text" placeholder="Username" name="uname" required>
+            </tr>
+            <tr>
+                <label for="psw"><b>Password </b></label>
+                <input type="password" placeholder="Password" name="psw" required>
+            </tr>
+            <tr>
+                <button type="submit" mat-raised-button color="primary">Login</button>
+                <label>
+                  <input type="checkbox" checked="checked" name="remember_me"> Remember me
+                </label>
+            </tr>
+        </table>
+      </fieldset>
+    </form>
+  </mat-card>
+</div>
