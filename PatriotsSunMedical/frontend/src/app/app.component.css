@@ -1,8 +1,3 @@
-body {
-    background-color: grey;
-    color: darkslategrey;
-}
-
 mat-toolbar {
     background-color: darkslategray;
     color: burlywood;
@@ -17,10 +12,14 @@ mat-toolbar {
     font-variant: normal; 
     font-weight: 700; 
     line-height: 26.4px; 
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+
+header {
+    background-color: antiquewhite;
 }
 
 #navigation_seperator {
@@ -52,7 +51,7 @@ mat-toolbar {
     padding: 10px;
 }
 
-#patient_list {
+#router_container {
     width: 95%;
     display: block;
     margin: auto;
