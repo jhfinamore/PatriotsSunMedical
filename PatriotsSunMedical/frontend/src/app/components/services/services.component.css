@@ -1,0 +1,21 @@
+p {
+    font-size: 14pt;
+}
+
+h1, h2 {
+    color: maroon;
+    font-family: Bookman Old Style;
+    font-size: 24px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 26.4px;
+}
+
+#service_container {
+    padding: 10px;
+    margin: 10px;
+    background-color: lightgoldenrodyellow;
+    border: solid 2px chocolate;
+    border-radius: 5px;
+}

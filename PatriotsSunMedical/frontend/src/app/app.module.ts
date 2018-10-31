@@ -19,9 +19,10 @@ import { ServicesComponent } from './components/services/services.component';
 import { StaffLoginComponent } from './components/staff-login/staff-login.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 
-// Handling of the issues
-import { IssueService } from './issue.service';
+// Handling of the patients (previously './issue.service')
+import { PatientService } from './patient.service';
 
+// Added routes for home, mission statement, staff_login
 const routes: Routes = [
   { path: 'create', component: CreateComponent},
   { path: 'edit/:id', component: EditComponent},
@@ -63,7 +64,7 @@ const routes: Routes = [
     MatDividerModule,
     MatSnackBarModule
   ],
-  providers: [IssueService],
+  providers: [PatientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

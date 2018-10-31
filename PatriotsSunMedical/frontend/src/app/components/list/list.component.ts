@@ -2,8 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
 
-import { Issue } from '../../issue.model';
-import { IssueService } from '../../issue.service';
+// From when we listed issues rather than patients
+// import { Issue } from '../../issue.model';
+// import { IssueService } from '../../issue.service';
+
+import { Patient } from '../../patient.model';
+import { PatientService } from '../../patient.service';
 
 @Component({
   selector: 'app-list',
@@ -12,6 +16,7 @@ import { IssueService } from '../../issue.service';
 })
 export class ListComponent implements OnInit {
 
+  /* Issue Code
   issues: Issue[];
   displayedColumns = ['title', 'responsible', 'severity', 'status', 'actions'];
 
@@ -40,5 +45,34 @@ export class ListComponent implements OnInit {
       this.fetchIssues();
     });
   }
+  */
+
+  patients: Patient[];
+  displayedColumns = ['fname', 'lname', 'insurance', 'gender', 'age', 'weight', 'reason'];
+  constructor(private patientService: PatientService, private router: Router) { }
+
+  ngOnInit() {
+    this.fetchIssues();
+  }
+
+  fetchIssues() {
+    this.patientService
+      .getPatients()
+      .subscribe((data: Patient[]) => {
+        this.patients = data;
+        console.log('Data requested ...');
+        console.log(this.patients);
+      });
+  }
+
+  editIssue(id) {
+    this.router.navigate([`/edit/${id}`]);
+  }
+
+  deleteIssue(id) {
+    this.patientService.deletePatient(id).subscribe(() => {
+      this.fetchIssues();
+    });
+ }
 
 }
