@@ -48,14 +48,14 @@ export class ListComponent implements OnInit {
   */
 
   patients: Patient[];
-  displayedColumns = ['fname', 'lname', 'insurance', 'gender', 'age', 'weight', 'reason'];
+  displayedColumns = ['fname', 'lname', 'insurance', 'gender', 'age', 'weight', 'reason', 'actions'];
   constructor(private patientService: PatientService, private router: Router) { }
 
   ngOnInit() {
-    this.fetchIssues();
+    this.fetchPatients();
   }
 
-  fetchIssues() {
+  fetchPatients() {
     this.patientService
       .getPatients()
       .subscribe((data: Patient[]) => {
@@ -65,13 +65,13 @@ export class ListComponent implements OnInit {
       });
   }
 
-  editIssue(id) {
+  editPatient(id) {
     this.router.navigate([`/edit/${id}`]);
   }
 
-  deleteIssue(id) {
+  deletePatient(id) {
     this.patientService.deletePatient(id).subscribe(() => {
-      this.fetchIssues();
+      this.fetchPatients();
     });
  }
 

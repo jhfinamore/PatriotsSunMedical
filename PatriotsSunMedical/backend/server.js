@@ -1,9 +1,19 @@
+// More issues with import statements causing 'unexpected token' errors
+/*
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
 import Issue from './models/Issue';
+import Patient from './models/patient';
+*/
+
+const express = require('express');
+const cors    = require('cors');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const Patient = require('./models/patient');
 
 const app = express();
 const router = express.Router();
@@ -11,7 +21,11 @@ const router = express.Router();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/Issues');
+// Previous Mongoose connection line
+// mongoose.connect('mongodb://localhost:27017/Issues');
+
+mongoose.connect('mongodb://localhost:27017/Patients');
+
 
 const connection = mongoose.connection;
 
@@ -19,6 +33,7 @@ connection.once('open', () => {
     console.log('MongoDB database connection established successfully!');
 });
 
+/*
 router.route('/issues').get((req, res) => {
     Issue.find((err, issues) => {
         if (err)
@@ -74,6 +89,71 @@ router.route('/issues/delete/:id').get((req, res) => {
             res.json(err);
         else
             res.json('Remove successfully');
+    })
+})
+*/
+
+// New Code below
+
+router.route('/patients').get((req, res) => {
+    Patient.find((err, patients) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(patients);
+    });
+});
+
+router.route('/patients/:id').get((req, res) => {
+    Patient.findById(req.params.id, (err, patient) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(patient);
+    });
+});
+
+router.route('/patients/add').post((req, res) => {
+    let patient = new Patient(req.body);
+    patient.save()
+        .then(issue => {
+            res.status(200).json({'issue': 'Added successfully'});
+        })
+        .catch(err => {
+            res.status(400).send('Failed to create new record');
+        });
+});
+
+router.route('/patients/update/:id').post((req, res) => {
+    Patient.findById(req.params.id, (err, patient) => {
+        if (!patient)
+            return next(new Error('Could not load patient record!'));
+        else {
+
+            patient.fname = req.body.fname;
+            patient.lname = req.body.lname;
+            patient.insurance = req.body.insurance;
+            patient.gender = req.body.gender;
+            patient.age = req.body.age;
+            patient.weight = req.body.weight;
+            patient.reason = req.body.reason;
+
+
+            patient.save().then(patient => {
+                res.json('Update done');
+            }).catch(err => {
+                res.status(400).send('Update failed');
+            });
+        }
+    });
+});
+
+router.route('/patients/delete/:id').get((req, res) => {
+    Patient.findByIdAndRemove({_id: req.params.id}, (err, patient) => {
+        if (err)
+            res.json(err);
+        else
+            res.json('Removed patient record successfully');
     })
 })
 
