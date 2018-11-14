@@ -57,7 +57,9 @@ header {
 }
 
 #page_footer {
+    margin-top: 30px;
+    padding: 7px;
     background-color: darkslategray;
     color: burlywood;
-    
+
 }
