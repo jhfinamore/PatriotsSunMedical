@@ -28,18 +28,18 @@ header {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid goldenrod;
+    border-top: 1px solid #ffcd66;
 }
 
 .navbar-brand {
-    color: goldenrod;
+    color: #ffcd66;
     font-size: 15pt;
     padding: 0px;
     margin-bottom: 3px;
 }
 
 .navbar-brand:hover {
-    color: goldenrod;
+    color: #ffcd66;
 }
 
 #logo_image {
@@ -52,7 +52,12 @@ header {
 }
 
 #router_container {
-    width: 95%;
     display: block;
     margin: auto;
+}
+
+#page_footer {
+    background-color: darkslategray;
+    color: burlywood;
+    
 }
