@@ -1,5 +1,10 @@
 p {
     font-size: 14pt;
+    text-shadow: 0.4px 0.4px darkslategrey;
+}
+
+h1 {
+    text-align: center;
 }
 
 h1, h2 {
@@ -10,6 +15,7 @@ h1, h2 {
     font-variant: normal; 
     font-weight: 700; 
     line-height: 26.4px;
+    text-shadow: 0.4px 0.4px black;
 }
 
 #homepage_container {
@@ -24,16 +30,12 @@ h1, h2 {
     float: right;
     display: inline-block;
     border-radius: 6px;
-}
-
-#surgeon2 {
-    float: right;
-    border-radius: 6px;
-    width: 400px;
+    clear: both;
 }
 
 #veretan1 {
-    float: left;
+    float: right;
     border-radius: 6px;
     width: 300px;
+
 }

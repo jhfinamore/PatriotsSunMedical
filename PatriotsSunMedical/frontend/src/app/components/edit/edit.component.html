@@ -35,7 +35,7 @@
 
       <mat-divider></mat-divider>
       <br><br>
-      <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
+      <button mat-raised-button color="warn" routerLink="/list">Back</button>&nbsp;
       <button type="submit" (click)="updatePatient(fname.value, lname.value, insurance.value, gender.value, age.value, weight.value, reason.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Save</button>
     </form>
   </mat-card>

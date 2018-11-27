@@ -1,5 +1,6 @@
 p {
     font-size: 14pt;
+    text-shadow: 0.4px 0.4px darkslategrey;
 }
 
 h1, h2 {
@@ -10,6 +11,20 @@ h1, h2 {
     font-variant: normal; 
     font-weight: 700; 
     line-height: 26.4px;
+    text-shadow: 0.4px 0.4px black;
+    text-align: center;
+}
+
+h3 {
+    color: maroon;
+    font-family: Bookman Old Style;
+    text-shadow: 0.4px 0.4px black;
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 26.4px;
+    font-size: 16px;
+    text-align: center;
 }
 
 #mission_container {

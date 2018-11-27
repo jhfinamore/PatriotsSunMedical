@@ -1,5 +1,10 @@
 p {
     font-size: 14pt;
+    text-shadow: 0.4px 0.4px darkslategrey;
+}
+
+table {
+    text-shadow: 0.4px 0.4px darkslategrey;
 }
 
 h1, h2 {
@@ -10,6 +15,8 @@ h1, h2 {
     font-variant: normal; 
     font-weight: 700; 
     line-height: 26.4px;
+    text-shadow: 0.4px 0.4px black;
+    text-align: center;
 }
 
 #service_container {
