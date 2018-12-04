@@ -1,0 +1,17 @@
+1 Before Update: { _id: 5bfec50b91612b6910f45ecd,
+  fname: 'Bobby',
+  lname: 'Builder',
+  insurance: 'Construction',
+  age: 54,
+  weight: 200,
+  reason: 'Broken Heart/Broken Toe\n',
+  __v: 0 } After updated{ _id: 5bfec50b91612b6910f45ecd,
+  fname: 'Bobby',
+  lname: 'Builder',
+  insurance: 'Construction',
+  age: 54,
+  weight: 200,
+  reason: 'Broken Heart/Impaled\n',
+  __v: 0 } 
+Wed Nov 28 2018 11:49:50 GMT-0500 (Eastern Standard Time)
+

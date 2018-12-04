@@ -5,6 +5,10 @@ import mongoose from 'mongoose';
 
 import Patient from './models/Patient';
 import { runInNewContext } from 'vm';
+import { access } from 'fs';
+
+//number for logging sake!
+var number = 1;
 
 const app = express();
 const router = express.Router();
@@ -19,6 +23,11 @@ const connection = mongoose.connection;
 connection.once('open', () => {
     console.log('MongoDB database connection established successfully');
 });
+
+
+//Trying file writing
+var fs = require('fs');
+var stream = fs.createWriteStream("dataTransactionLog.txt");
 
 router.route('/patients').get((req, res) => {
     Patient.find((err, patients) => {
@@ -43,6 +52,8 @@ router.route('/patients/add').post((req, res) => {
     patient.save()
         .then(patient => {
             res.status(200).json({'patient': 'Added successfully'});
+            stream.write(number + " Adding patient \n" + patient + ' \n' + date + '\n\n');
+            number += 1;
         })
         .catch(err => {
             res.status(400).send('Failed to create new patient');
@@ -51,6 +62,7 @@ router.route('/patients/add').post((req, res) => {
 
 router.route('/patients/update/:id').post((req, res) => {
     Patient.findById(req.params.id, (err, patient) => {
+        stream.write(number + " Before Update: " + patient)
         if (!patient)
             return next(new Error('Could not load document'));
         else {   
@@ -64,6 +76,8 @@ router.route('/patients/update/:id').post((req, res) => {
 
             patient.save().then(patient => {
                 res.json('Update done');
+                stream.write(" After updated" + patient + ' \n' + date + '\n\n');
+                number += 1;
             }).catch(err => {
                 res.status(400).send('Update Failed');
             });
@@ -77,9 +91,34 @@ router.route('/patients/delete/:id').get((req, res) => {
             res.json(err);
         else
             res.json('Removed successfully');
+            stream.write(number + " Record before deleted \n" +patient + "\n Deleted sucessfully! " + date +'\n\n');
+            number += 1;
     });
 });
 
 app.use('/', router);
 
 app.listen(4000, () => console.log('Express server running on port 4000'));
+
+var date = new Date();
+getDateTime();
+function getDateTime() {
+    var hour = date.getHours();
+    hour = (hour < 10 ? "0" : "") + hour;
+
+    var min  = date.getMinutes();
+    min = (min < 10 ? "0" : "") + min;
+
+    var sec  = date.getSeconds();
+    sec = (sec < 10 ? "0" : "") + sec;
+
+    var year = date.getFullYear();
+
+    var month = date.getMonth() + 1;
+    month = (month < 10 ? "0" : "") + month;
+
+    var day  = date.getDate();
+    day = (day < 10 ? "0" : "") + day;
+
+    return year + ":" + month + ":" + day + ":" + hour + ":" + min + ":" + sec;
+}

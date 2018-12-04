@@ -2,5 +2,9 @@
 
 body { 
     margin: 0;
-    background-color: #ccefff;
+    background-color: #fff;
+}
+
+header {
+    background-color: #fff;
 }
